@@ -1,1 +1,0 @@
-# restaurant_model.py
