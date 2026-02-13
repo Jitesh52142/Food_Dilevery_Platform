@@ -1,0 +1,1 @@
+# geolocation_adapter.py
