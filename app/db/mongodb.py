@@ -1,7 +1,9 @@
 from motor.motor_asyncio import AsyncIOMotorClient
-from app.config import settings
+import os
 
-client = AsyncIOMotorClient(settings.MONGO_URL)
+MONGO_URL = os.getenv("MONGO_URL")
 
+client = AsyncIOMotorClient(MONGO_URL)
 
-db = client.get_default_database()
+# Explicit DB name (DO NOT depend on default)
+db = client["food_delivery"]
