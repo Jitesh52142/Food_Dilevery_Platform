@@ -7,6 +7,9 @@ from app.routers import review_router, delivery_router
 
 app = FastAPI(title="Food Delivery Platform")
 
+
+
+
 app.include_router(auth_router.router, prefix="/auth", tags=["Auth"])
 app.include_router(restaurant_router.router, prefix="/restaurants", tags=["Restaurants"])
 app.include_router(cart_router.router, prefix="/cart", tags=["Cart"])
@@ -17,3 +20,10 @@ app.include_router(delivery_router.router, prefix="/delivery", tags=["Delivery"]
 app.include_router(menu_router.router, prefix="/menu", tags=["Menu"])
 
 
+
+@app.get("/")
+async def root():
+    return {
+        "message": "Food Delivery Platform API is running",
+        "status": "healthy"
+    }

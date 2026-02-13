@@ -15,10 +15,6 @@ router = APIRouter()
 
 
 
-@router.get("/me")
-async def get_me(user=Depends(get_current_user)):
-    return user
-
 
 @router.post("/register")
 async def register(payload: RegisterSchema):
@@ -47,3 +43,8 @@ async def login(payload: LoginSchema):
     return {"access_token": token, "token_type": "bearer"}
 
 
+
+
+@router.get("/me")
+async def get_me(user=Depends(get_current_user)):
+    return user
